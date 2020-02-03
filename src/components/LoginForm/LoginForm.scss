@@ -2,8 +2,10 @@
   background: hotpink;
   margin-left: auto;
   margin-right: auto;
+  padding: 24px;
 
   & form {
+    
   }
   &__section {
     display: flex;
@@ -33,6 +35,11 @@
 
   &__password {
   }
-  & footer {
+
+  &__loginButton {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
+ 
 }
