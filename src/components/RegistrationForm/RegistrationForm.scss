@@ -1,0 +1,39 @@
+.RegistrationForm {
+  background: hotpink;
+  margin-left: auto;
+  margin-right: auto;
+
+  & form {
+  }
+  &__section {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background: blue;
+    padding: 12px;
+  }
+  & div {
+    padding: 12px;
+  }
+  &__section {
+  }
+  &__header {
+    text-align: center;
+  }
+  &__tagLine {
+    display: block;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &__name {
+  }
+  &__username {
+  }
+  &__password {
+  }
+  & footer {
+  }
+}
