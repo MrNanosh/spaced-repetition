@@ -1,10 +1,14 @@
 .LoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: hotpink;
   margin-left: auto;
   margin-right: auto;
   border-radius: 12px;
   width: 300px;
-  height: 240px;
+  height: max-content;
+  padding-bottom: 14px;
  
 
   &__section {
@@ -33,12 +37,13 @@
   &__username,
   &__password {
     border-radius: inherit;
-    margin: 14px;
+    margin: 4px;
     padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 70px;
+    height: 100px;
+    width: 280px;
     background: cornflowerblue;
   }
 
@@ -48,8 +53,9 @@
   }
 
   &__loginButton {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  
+    // display: block;
+    // margin-right: auto;
+    // margin-left: auto;
   }
 }
