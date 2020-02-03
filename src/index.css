@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,3 +15,71 @@ body {
 :root {
   --font-size: calc(10px + 1vmin);
 }
+
+* {
+  --vibrant-green: #11c594;
+  --light-tan: #f1eac5;
+  --greenish-tan: #cbd6a5;
+  --reg-tan: #e3c9a3;
+  --normal-font-color: rgb(55, 65, 76);
+  font-family: Helvetica, Arial,
+    sans-serif;
+  color: var(--normal-font-color);
+}
+
+a {
+  color: var(--normal-font-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+a:hover {
+  color: rgb(96, 28, 39);
+  text-shadow: 2px 3px 5px
+    rgb(174, 185, 162);
+}
+
+.--inputBox {
+  border-radius: inherit;
+  margin: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
+}
+
+section {
+  background-color: var(
+    --vibrant-green
+  );
+}
+/*CSS color scheme ideas*/
+
+/* "green" RGB  #11C594 */
+/* "light-green" RGB  #ABEDAE */
+/* "greenish-tan" RGB  #CBD6A5 */
+/* "light-tan" RGB  #EDE2AB */
+/* "tan" RGB  #E3C9A3 */
+
+section {
+  background-color: var(
+    --vibrant-green
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  border-radius: 12px;
+}
+/*CSS color scheme ideas*/
+
+/* "green" RGB  #11C594 */
+/* "light-green" RGB  #ABEDAE */
+/* "greenish-tan" RGB  #CBD6A5 */
+/* "light-tan" RGB  #EDE2AB */
+/* "tan" RGB  #E3C9A3 */

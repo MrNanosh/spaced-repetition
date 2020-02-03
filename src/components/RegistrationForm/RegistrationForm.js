@@ -63,7 +63,7 @@ class RegistrationForm extends Component {
         >
           {error && <p>{error}</p>}
         </div>
-        <div className="RegistrationForm__name">
+        <div className="RegistrationForm__name --inputBox">
           <Label htmlFor="registration-name-input">
             Enter your name
             <Required />
@@ -75,7 +75,7 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <div className="RegistrationForm__username">
+        <div className="RegistrationForm__username --inputBox">
           <Label htmlFor="registration-username-input">
             Choose a username
             <Required />
@@ -86,7 +86,7 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <div className="RegistrationForm__password">
+        <div className="RegistrationForm__password --inputBox">
           <Label htmlFor="registration-password-input">
             Choose a password
             <Required />

@@ -4,7 +4,8 @@
 .Input {
   border-radius: 4px;
   background: rgb(240, 228, 210);
-  border: 2px solid burlywood;
+  border: 2px solid var(--reg-tan);
+
   height: 5vh;
   font-size: 1.1rem;
 
