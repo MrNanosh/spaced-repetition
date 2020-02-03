@@ -1,6 +1,7 @@
 .Button {
   height: 6vh;
   width: 15vh;
+  min-height: max-content;
   min-width: max-content;
   color: rgb(76, 60, 55);
   background: #dad299; /* fallback for old browsers */
@@ -24,4 +25,11 @@
   box-shadow: 0 12px 16px 0
       rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width: 992px) {
+  .Button {
+    height: 3vh;
+    width: 7.5vh;
+  }
 }
