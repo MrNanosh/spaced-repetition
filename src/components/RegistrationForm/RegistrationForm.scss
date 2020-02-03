@@ -2,9 +2,8 @@
   background: hotpink;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 12px;
 
-  & form {
-  }
   &__section {
     display: flex;
     flex-direction: column;
@@ -13,11 +12,23 @@
     margin-right: auto;
     background: blue;
     padding: 12px;
+    border-radius: 12px;
   }
-  & div {
+  &__name,
+  &__username,
+  &__password {
+    border-radius: inherit;
+    margin: 4px;
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px;
+    background: cornflowerblue;
   }
-  &__section {
+  &__alert {
+    height: 20px;
+    font-size: 12px;
   }
   &__header {
     text-align: center;
@@ -35,5 +46,6 @@
   &__password {
   }
   & footer {
+    padding: 24px;
   }
 }
