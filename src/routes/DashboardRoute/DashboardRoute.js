@@ -30,4 +30,4 @@ class DashboardRoute extends Component {
   }
 }
 
-export default DashboardRoute
+export default DashboardRoute;
