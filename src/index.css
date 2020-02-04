@@ -25,6 +25,12 @@ html {
   height: 100%;
   background-attachment: fixed;
 }
+li {
+  list-style-type: none;
+}
+ul {
+  padding-inline-start: 0;
+}
 body {
   margin: 0;
   height: 100%;
@@ -73,11 +79,6 @@ a:hover {
   height: 100px;
 }
 
-section {
-  background-color: var(
-    --vibrant-green
-  );
-}
 /*CSS color scheme ideas*/
 
 /* "green" RGB  #11C594 */
