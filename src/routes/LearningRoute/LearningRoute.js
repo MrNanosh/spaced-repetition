@@ -4,6 +4,8 @@ import React, {
 import config from '../../config';
 import TokenService from '../../services/token-service';
 import Button from '../../components/Button/Button';
+import LearningContext from '../../contexts/LearningContext';
+import DisplayScore from '../../components/DisplayScore/DisplayScore';
 
 class LearningRoute extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class LearningRoute extends Component {
         nextWord: ''
       }
     };
-    this.onSubmit = this.handleSubmit.bind(
+    this.handleSubmit = this.handleSubmit.bind(
       this
     );
     this.handleChange = this.handleChange.bind(
@@ -91,7 +93,9 @@ class LearningRoute extends Component {
                 .userInput
             }),
             headers: {
-              // Authorization: `bearer ${TokenService.getAuthToken()}`
+              'content-type':
+                'application/json',
+              Authorization: `bearer ${TokenService.getAuthToken()}`
             }
           }
         );
@@ -160,72 +164,92 @@ class LearningRoute extends Component {
             correct!
           </h2>{' '}
           <br />
-          <Button>Next Word</Button>
+          <Button
+            className="Learn__button"
+            type="button"
+          >
+            Next Word
+          </Button>
         </React.Fragment>
       );
     } else if (isCorrect === false) {
       userFeedback = (
-        <h2>
-          Sorry, the correct answer is{' '}
-          {answer}
-        </h2>
+        <>
+          <h2>
+            Sorry, the correct answer is{' '}
+            {answer}
+          </h2>
+          <Button
+            className="Learn__button"
+            type="button"
+          >
+            Next Word
+          </Button>
+        </>
       );
     } else {
       userFeedback = null;
     }
 
     return (
-      <section className="Learn">
-        <p>
-          Your total score is:{' '}
-          {totalScore}
-        </p>
-        <h2>Translate the word:</h2>
-        <span>{nextWord}</span>
-        <form
-          onSubmit={this.handleSubmit}
-        >
-          <label htmlFor="learn-guess-input">
-            What's the translation for
-            this word?
-          </label>
-          <input
-            id="learn-guess-input"
-            type="text"
-            value={this.state.userInput}
-            onChange={this.handleChange}
-            required
-          />
-          <button
-            type="submit"
-            disabled={
-              hasSubmitted
-                ? true
-                : false
-            }
+      <LearningContext.Provider
+        value={{
+          totalScore: totalScore
+        }}
+      >
+        <section className="Learn">
+          <DisplayScore></DisplayScore>
+          <h2>Translate the word:</h2>
+          <span>{nextWord}</span>
+          <form
+            onSubmit={this.handleSubmit}
           >
-            Submit your answer
-          </button>
-        </form>
-        <div className="answer-feedback">
-          {userFeedback}
-        </div>
-        <p>
-          {' '}
-          You have answered this word
-          correctly {
-            wordCorrectCount
-          }{' '}
-          times.
-        </p>
+            <label htmlFor="learn-guess-input">
+              What's the translation for
+              this word?
+            </label>
+            <input
+              id="learn-guess-input"
+              type="text"
+              value={
+                this.state.userInput
+              }
+              onChange={
+                this.handleChange
+              }
+              required
+            />
+            <Button
+              type="submit"
+              disabled={
+                hasSubmitted
+                  ? true
+                  : false
+              }
+            >
+              Submit your answer
+            </Button>
+          </form>
+          <div className="answer-feedback">
+            {userFeedback}
+          </div>
+          <p>
+            {' '}
+            You have answered this word
+            correctly {
+              wordCorrectCount
+            }{' '}
+            times.
+          </p>
 
-        <p>
-          {' '}
-          You have answered this word
-          incorrectly{' '}
-          {wordIncorrectCount} times.
-        </p>
-      </section>
+          <p>
+            {' '}
+            You have answered this word
+            incorrectly{' '}
+            {wordIncorrectCount} times.
+          </p>
+        </section>
+      </LearningContext.Provider>
     );
   }
 }
