@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import config from '../../config';
-import { JsonWebTokenError } from 'jsonwebtoken';
 import TokenService from '../../services/token-service';
 import Button from '../components/Button';
 
@@ -62,7 +61,7 @@ class LearningRoute extends Component {
   }
   //POST user response
   handleSubmit(e) {
-    //e.preventDefault()
+    e.preventDefault()
     const input = {
       req: {
         body: this.state.userInput
@@ -73,7 +72,8 @@ class LearningRoute extends Component {
       method: 'POST',
       body: JSON.stringify(input),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => res.json())
@@ -91,7 +91,7 @@ class LearningRoute extends Component {
 
     let userFeedback;
 
-    if (this.state.userInput === res.translation) {
+    if (this.state.userInput === res.answer) {
       userFeedback = (
         <React.Fragment>
         <h2>Congratulations! You are correct!</h2> <br/>
@@ -101,7 +101,7 @@ class LearningRoute extends Component {
     } else {
       userFeedback =
         (
-          <h2>Sorry, the correct answer is {res.translation}</h2>
+          <h2>Sorry, the correct answer is {res.answer}</h2>
           )
     }
 
@@ -133,9 +133,6 @@ class LearningRoute extends Component {
           {userFeedback}
 
         </div>
-
-
-
         <p>
           {' '}
           You have answered this word
