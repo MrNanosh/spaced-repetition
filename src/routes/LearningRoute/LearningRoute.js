@@ -1,9 +1,8 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import config from '../../config';
 import { JsonWebTokenError } from 'jsonwebtoken';
 import TokenService from '../../services/token-service';
+import Button from '../components/Button';
 
 class LearningRoute extends Component {
   constructor(props) {
@@ -14,13 +13,19 @@ class LearningRoute extends Component {
       wordCorrectCount: 0,
       wordIncorrectCount: 0,
       totalScore: 0,
+      userInput: '',
       error: null,
       hasError: false
     };
+    this.onSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillMount() {
     this.getHead();
+  }
+  componentDidMount() {
+    this.handleSubmit();
   }
 
   async getHead() {
@@ -31,8 +36,7 @@ class LearningRoute extends Component {
         }
       };
       let response = await fetch(
-        config.API_ENDPOINT +
-          '/language/head',
+        config.API_ENDPOINT + '/language/head',
         options
       );
       let rspJson = await response.json();
@@ -53,6 +57,30 @@ class LearningRoute extends Component {
     }
   }
 
+  handleChange(e) {
+    this.setState({ userInput: e.target.userInput });
+  }
+  //POST user response
+  handleSubmit(e) {
+    //e.preventDefault()
+    const input = {
+      req: {
+        body: this.state.userInput
+      }
+    };
+
+    fetch(config.API_ENDPOINT + '/language/guess', {
+      method: 'POST',
+      body: JSON.stringify(input),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(response => console.log('Success:', JSON.stringify(response)))
+      .catch(error => console.error('Error:', error));
+  }
+
   render() {
     const {
       nextWord,
@@ -60,6 +88,23 @@ class LearningRoute extends Component {
       wordCorrectCount,
       wordIncorrectCount
     } = this.state;
+
+    let userFeedback;
+
+    if (this.state.userInput === res.translation) {
+      userFeedback = (
+        <React.Fragment>
+        <h2>Congratulations! You are correct!</h2> <br/>
+        <Button>Next Word</Button>
+        </React.Fragment>
+        )
+    } else {
+      userFeedback =
+        (
+          <h2>Sorry, the correct answer is {res.translation}</h2>
+          )
+    }
+
     return (
       <section className="Learn">
         <p>
@@ -68,7 +113,7 @@ class LearningRoute extends Component {
         </p>
         <h2>Translate the word:</h2>
         <span>{nextWord}</span>
-        <form>
+        <form onSubmit={this.handleSubmit} >
           <label htmlFor="learn-guess-input">
             What's the translation for
             this word?
@@ -76,12 +121,21 @@ class LearningRoute extends Component {
           <input
             id="learn-guess-input"
             type="text"
+            value={this.state.userInput}
+            onChange={this.handleChange}
             required
           />
           <button type="submit">
             Submit your answer
           </button>
         </form>
+        <div className="answer-feedback">
+          {userFeedback}
+
+        </div>
+
+
+
         <p>
           {' '}
           You have answered this word
@@ -97,8 +151,6 @@ class LearningRoute extends Component {
           incorrectly{' '}
           {wordIncorrectCount} times.
         </p>
-        {/* form component that allows
-        user to submit answer */}
       </section>
     );
   }
