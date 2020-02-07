@@ -37,6 +37,9 @@ class LearningRoute extends Component {
     this.handleChange = this.handleChange.bind(
       this
     );
+    this.handleNext = this.handleNext.bind(
+      this
+    );
   }
 
   componentWillMount() {
@@ -71,6 +74,29 @@ class LearningRoute extends Component {
         hasError: true
       });
     }
+  }
+
+  handleNext() {
+    this.setState({
+      nextWord: this.state.next
+        .nextWord,
+      wordCorrectCount: this.state.next
+        .wordCorrectCount,
+      wordIncorrectCount: this.state
+        .next.wordIncorrectCount,
+      userInput: '',
+      error: null,
+      hasError: false,
+      hasSubmitted: false,
+      isCorrect: null,
+      guess: null,
+      answer: '',
+      next: {
+        wordCorrectCount: 0,
+        wordIncorrectCount: 0,
+        nextWord: ''
+      }
+    });
   }
 
   handleChange(e) {
@@ -173,6 +199,8 @@ class LearningRoute extends Component {
           isCorrect,
           guess,
           answer,
+          handleChangeNext: this
+            .handleNext,
           handleChangeInput: this
             .handleChange,
           userInput

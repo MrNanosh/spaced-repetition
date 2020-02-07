@@ -6,7 +6,8 @@ export const LearnButton = props => {
   let butt;
   const {
     userInput,
-    handleChangeInput
+    handleChangeInput,
+    handleChangeNext
   } = React.useContext(LearningContext);
   if (props.hasSubmitted) {
     butt = (
@@ -14,6 +15,7 @@ export const LearnButton = props => {
         id="next-button"
         className="Learn__button"
         type="button"
+        onClick={handleChangeNext}
       >
         Try another word!
       </Button>
