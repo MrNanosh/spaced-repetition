@@ -64,8 +64,9 @@ GET to
         "correct_count":0,
         "incorrect_count":0
         }
+```        
         ...
-```
+```json
 POST to
 '/api/user':
 ```json
