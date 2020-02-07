@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "space-r",
+  "alias": "space-r",
+  "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+  ]
+}
