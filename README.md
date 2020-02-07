@@ -10,9 +10,9 @@ Developed by Dana Zinatbakhsh and Jonathan Jackson
 * Client: React
 * Web Server: Node and Express with PostgreSQL 
 * Database: PostgreSQL hosted on Heroku
-* Tests: Supertest, Chai, Cypress
+* Tests: Supertest, Mocha, Chai, Cypress
 
-### A live link to the project is available here: (LINK_TO_LIVE_APP)
+### A live link to the project is available here: https://space-r.now.sh/
 
 ### GitHub Repo for Client: https://github.com/MrNanosh/spaced-repetition
 ### GitHub Repo for Server: https://github.com/MrNanosh/spaced-repetition-api
