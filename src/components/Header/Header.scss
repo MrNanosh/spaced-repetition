@@ -1,6 +1,7 @@
 .Header {
   background: none;
   height: 30vh;
+  min-height: max-content;
   &__title {
     display: flex;
     flex-direction: column;
@@ -8,18 +9,31 @@
     padding: 20px;
     & a {
       color: rgb(145, 142, 55);
-      font-size: 4rem;
+      font-size: 3rem;
 
       font-family: 'Orbitron', Helvetica,
         Arial, sans-serif;
     }
   }
+  & div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+  }
   & span {
     padding-left: 30px;
     display: inline-block;
     margin: left;
+    font-size: 2rem;
+    color: rgb(226, 211, 211);
+  }
+  & nav.login {
+    width: 100%;
+    display: flex;
+    align-items: space-between;
   }
   & nav {
+    width: max-content;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -46,13 +60,31 @@
 
 @media (min-width: 992px) {
   .Header {
-    height: max-content;
+    & div {
+      display: flex;
+    }
 
     &__title {
       padding: 0;
       align-items: left;
       & a {
         font-size: 4rem;
+      }
+    }
+    & nav {
+      & a {
+      }
+    }
+  }
+}
+@media (min-height: 992px) {
+  .Header {
+    height: 15vh;
+    & div {
+    }
+
+    &__title {
+      & a {
       }
     }
     & nav {

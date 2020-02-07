@@ -1,3 +1,4 @@
+import './LearningRoute.scss';
 import React, {
   Component
 } from 'react';
@@ -210,6 +211,7 @@ class LearningRoute extends Component {
           <DisplayScore></DisplayScore>
           <DisplayFeedback></DisplayFeedback>
           <form
+            className="guess-form"
             onSubmit={this.handleSubmit}
           >
             <LearnButton

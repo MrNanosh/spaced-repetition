@@ -1,0 +1,38 @@
+.DisplayScore {
+}
+.DisplayFeedback {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  & span {
+    display: block;
+    color: rgb(240, 222, 225);
+    margin: 24px;
+    font-size: 2rem;
+  }
+  & p {
+    font-size: 1.6rem;
+  }
+}
+
+.guess-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 300px;
+  max-width: 1000px;
+  & label,
+  input {
+    margin: 18px;
+    font-size: 1.6rem;
+  }
+  & input {
+    min-height: 18px;
+    max-height: 40px;
+    height: 4vh;
+    width: 50%;
+    min-width: 70px;
+    max-width: 50vh;
+  }
+}
