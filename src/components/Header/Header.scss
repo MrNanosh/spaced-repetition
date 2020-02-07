@@ -24,7 +24,7 @@
     padding-left: 30px;
     display: inline-block;
     margin: left;
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: rgb(226, 211, 211);
   }
   & nav.login {
@@ -50,6 +50,9 @@
 
 @media (min-width: 720px) {
   .Header {
+    & span {
+      font-size: 2.2rem;
+    }
     & nav {
       & a {
         font-size: 2rem;

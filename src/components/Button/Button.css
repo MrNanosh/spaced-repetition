@@ -20,6 +20,7 @@
   transition: ease-in-out 0.6s 0.1s;
   font-weight: 600;
   margin-bottom: 20px;
+  min-height: 15px;
 }
 .Button:hover {
   box-shadow: 0 12px 16px 0
