@@ -1,30 +1,36 @@
-# <ins>SpaceR 
+# <ins>SpaceR
+
 ## A Spaced Repetition Application for Language Learners
 
 Developed by Dana Zinatbakhsh and Jonathan Jackson
 
-## Summary 
+## Summary
+
 <i>SpaceR</i> is an application designed to help users memorize words in a foreign language. <i>SpaceR</i> uses the evidence-based learning technique of <i>spaced repetition</i> to provide an interactive learning experience for the user. A foreign word is displayed on the screen, prompting the user to type in the English translation of the word. The user then receives feedback on their answer - whether it was correct or incorrect. The foreign word is then shuffled back into the "stack" of vocabulary words. Words that the user translated incorrectly are shown more frequently than words that were correctly translated in order to reinforce learning of the vocabulary.
 
 ## Technologies Used
-* Client: React
-* Web Server: Node and Express with PostgreSQL 
-* Database: PostgreSQL hosted on Heroku
-* Tests: Supertest, Mocha, Chai, Cypress
+
+- Client: React
+- Web Server: Node and Express with PostgreSQL
+- Database: PostgreSQL hosted on Heroku
+- Tests: Supertest, Mocha, Chai, Cypress
 
 ### A live link to the project is available here: https://space-r.now.sh/
 
 ### GitHub Repo for Client: https://github.com/MrNanosh/spaced-repetition
+
 ### GitHub Repo for Server: https://github.com/MrNanosh/spaced-repetition-api
 
 ### Screenshots:
-![alt text](./public/SpaceR_screenshots/homepage_view.png "SpaceR_homepage")
+
+![alt text](./public/SpaceR_screenshots/homepage_view.png 'SpaceR_homepage')
 
 ## API Endpoints
+
 The following API endpoints are available. The GET request to the /api/language endpoint returns database values for spaced repetition learning components.
 
-`POST to
-/api/auth`:
+`POST to /api/auth`:
+
 ```json
 {
 "username": "----",
@@ -53,11 +59,12 @@ GET to
         "correct_count":0,
         "incorrect_count":0
         }
-        ...
+```
 
 POST to
 '/api/user':
 
+```
 {
 "username": "admin",
 "name": "sample",
@@ -66,36 +73,7 @@ POST to
 
 
 
-## Setup
 
-To setup the application
-
-1. Fork and clone the project to your machine
-2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
-
-The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
-
-Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
-
-## Running project
-
-This is a `create-react-app` project so `npm start` will start the project in development mode with hot reloading by default.
-
-## Running the tests
-
-This project uses [Cypress IO](https://docs.cypress.io) for integration testing using the Chrome browser.
-
-Cypress has the following expectations:
-
-- You have cypress installed (this is a devDependency of the project)
-- You have your application running at http://localhost:3000.
-  - You can change the address of this expectation in the `./cypress.json` file.
-- Your `./src/config.js` is using http://localhost:8000/api as the `API_ENDPOINT`
-
-To start the tests run the command:
-
-```bash
-npm run cypress:open
 ```
 
 On the first run of this command, the cypress application will verify its install. Any other runs after this, the verification will be skipped.
