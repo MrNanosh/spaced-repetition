@@ -4,7 +4,14 @@ import React, {
 
 const LearningContext = React.createContext(
   {
-    totalScore: null
+    totalScore: null,
+    guess: '',
+    answer: '',
+    nextWord: '',
+    isCorrect: null,
+    hasSubmitted: null,
+    wordCorrectCount: 0,
+    wordIncorrectCount: 0
   }
 );
 export default LearningContext;

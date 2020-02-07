@@ -6,6 +6,8 @@ import TokenService from '../../services/token-service';
 import Button from '../../components/Button/Button';
 import LearningContext from '../../contexts/LearningContext';
 import DisplayScore from '../../components/DisplayScore/DisplayScore';
+import DisplayFeedback from '../../components/DisplayScore/DisplayFeedback';
+import { LearnButton } from '../../components/LearnButton/LearnButton';
 
 class LearningRoute extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class LearningRoute extends Component {
       hasError: false,
       hasSubmitted: false,
       isCorrect: null,
+      guess: null,
       answer: '',
       next: {
         wordCorrectCount: 0,
@@ -116,6 +119,7 @@ class LearningRoute extends Component {
           hasSubmitted: true,
           totalScore,
           isCorrect,
+          guess: this.state.userInput,
           answer,
           wordCorrectCount: isCorrect
             ? ++this.state
@@ -151,88 +155,41 @@ class LearningRoute extends Component {
       wordIncorrectCount,
       hasSubmitted,
       isCorrect,
-      answer
+      guess,
+      answer,
+      userInput
     } = this.state;
 
     let userFeedback = null;
 
-    if (isCorrect) {
-      userFeedback = (
-        <React.Fragment>
-          <h2>
-            Congratulations! You are
-            correct!
-          </h2>{' '}
-          <br />
-          <Button
-            className="Learn__button"
-            type="button"
-          >
-            Next Word
-          </Button>
-        </React.Fragment>
-      );
-    } else if (isCorrect === false) {
-      userFeedback = (
-        <>
-          <h2>
-            Sorry, the correct answer is{' '}
-            {answer}
-          </h2>
-          <Button
-            className="Learn__button"
-            type="button"
-          >
-            Next Word
-          </Button>
-        </>
-      );
-    } else {
-      userFeedback = null;
-    }
-
     return (
       <LearningContext.Provider
         value={{
-          totalScore: totalScore
+          nextWord,
+          totalScore,
+          wordCorrectCount,
+          wordIncorrectCount,
+          hasSubmitted,
+          isCorrect,
+          guess,
+          answer,
+          handleChangeInput: this
+            .handleChange,
+          userInput
         }}
       >
         <section className="Learn">
           <DisplayScore></DisplayScore>
-          <h2>Translate the word:</h2>
-          <span>{nextWord}</span>
+          <DisplayFeedback></DisplayFeedback>
           <form
             onSubmit={this.handleSubmit}
           >
-            <label htmlFor="learn-guess-input">
-              What's the translation for
-              this word?
-            </label>
-            <input
-              id="learn-guess-input"
-              type="text"
-              value={
-                this.state.userInput
-              }
-              onChange={
-                this.handleChange
-              }
-              required
-            />
-            <Button
-              type="submit"
-              disabled={
+            <LearnButton
+              hasSubmitted={
                 hasSubmitted
-                  ? true
-                  : false
               }
-            >
-              Submit your answer
-            </Button>
+            ></LearnButton>
           </form>
-          <div className="answer-feedback">
-            {userFeedback}
-          </div>
           <p>
             {' '}
             You have answered this word
@@ -241,7 +198,6 @@ class LearningRoute extends Component {
             }{' '}
             times.
           </p>
-
           <p>
             {' '}
             You have answered this word
