@@ -14,11 +14,11 @@ Developed by Dana Zinatbakhsh and Jonathan Jackson
 
 ### A live link to the project is available here: (LINK_TO_LIVE_APP)
 
-### GitHub Repo for Client: (link to client)
-### GitHub Repo for Server: (link to server)
+### GitHub Repo for Client: https://github.com/MrNanosh/spaced-repetition
+### GitHub Repo for Server: https://github.com/MrNanosh/spaced-repetition-api
 
 ### Screenshots:
-![alt text](Link_Goes_Here "SpaceR Screenshots")
+![alt text](./public/SpaceR_screenshots/homepage_view.png "SpaceR_homepage")
 
 ## API Endpoints
 The following API endpoints are available. The GET request to the /api/language endpoint returns database values for spaced repetition learning components.
