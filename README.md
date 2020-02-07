@@ -20,6 +20,17 @@ Developed by Dana Zinatbakhsh and Jonathan Jackson
 ### Screenshots:
 ![alt text](./public/SpaceR_screenshots/homepage_view.png "SpaceR_homepage")
 
+![alt text](./public/SpaceR_screenshots/full_on_view.png "SpaceR_main")
+
+![alt text](./public/SpaceR_screenshots/translate_view.png "SpaceR_translate")
+
+![alt text](./public/SpaceR_screenshots/login_view.png "SpaceR_login")
+
+![alt text](./public/SpaceR_screenshots/mobile_view_0.png "SpaceR_mobile1")
+
+![alt text](./public/SpaceR_screenshots/mobile_view_1.png "SpaceR_mobile2")
+
+
 ## API Endpoints
 The following API endpoints are available. The GET request to the /api/language endpoint returns database values for spaced repetition learning components.
 
@@ -54,10 +65,10 @@ GET to
         "incorrect_count":0
         }
         ...
-
+```
 POST to
 '/api/user':
-
+```json
 {
 "username": "admin",
 "name": "sample",
